@@ -339,3 +339,222 @@
 # 아스키코드 문자 변환 : ord(문자), chr(숫자)
 # ******************************************************************************************
 
+# 6075
+# st = 0
+# n = int(input())
+# while st <= n :
+#     print(st);
+#     st += 1
+
+# 6076
+# n = int(input())
+# for i in range(0, n + 1):
+#     print(i)
+
+# ******************************************************************************************
+# for i in range(n+1) :
+# range(n+1)은 0부터 n까지의 숫자 출력
+
+# range(끝)
+# range(시작, 끝)
+# range(시작, 끝, 증감)
+# ******************************************************************************************
+
+# 6077
+# n = int(input())
+# sum = 0           # 합계
+# for i in range(1, n+1):
+#     if i%2 == 0 : # 짝수
+#         sum += i
+# print(sum)
+
+# 6078
+# 1)
+# tgt_num = ord('q')
+# while 1 :
+#     m = ord(input())
+#     if m != tgt_num :
+#         print(chr(m))
+#     else : # m == tgt_num 일 경우
+#         print(chr(m))
+#         break
+
+# 2)
+# while True :
+#     c = input()
+#     if c == 'q':
+#         print(c)
+#         break
+#     else :
+#         print(c)
+
+# 3) 더 짧은 모범답안 -> 공통되는 코드는 앞이나 뒤로 빼기
+# while True :
+#     c = input()
+#     print(c)
+#     if c == 'q':
+#         break
+
+# ******************************************************************************************
+# 아스키코드로 변환할 필요 없이 문자끼리 비교
+# ******************************************************************************************
+
+# 6079
+# n = int(input())
+# sum = 0
+# for i in range(1, 1000):
+#     if(sum + i < n):
+#         sum += i
+#     else :
+#         print(i)
+#         break
+
+# 모범답안
+# n = int(input())
+# sum = 0
+# tgt = 0
+# while sum < n:
+#     tgt += 1
+#     sum += tgt
+#
+# print(tgt)
+
+# 6080
+# n, m = map(int, input().split())
+#
+# for i in range(1, n+1):
+#     for j in range(1, m+1):
+#         print(i, j)
+
+# 6081
+# n = int(input(), 16)
+# for i in range(1, 16):
+#     print('%X'%n, '*%X'%i, '=%X'%(n*i), sep='')
+
+# ******************************************************************************************
+# 1. 16진수 int로 받기
+#    n = int(input(), 16)
+
+# 2. 16진수 곱 출력 (곱한 값도 16진수로)
+#    print('%X'%n, '*%X'%i, '=%X'%(n*i), sep='')
+#    sep 은 구분자
+# ******************************************************************************************
+
+# 6082
+# n = int(input())
+# for i in range(1, n+1):
+#     if i%10 in (3, 6, 9):
+#         print('X', end = ' ')
+#     else :
+#         print(i, end = ' ')
+
+# 6083
+# i, j, k = map(int, input().split())
+# count = 0
+# for a in range(i):
+#     for b in range(j):
+#         for c in range(k):
+#             print(a, b, c)
+#             count+=1
+# print(count)
+
+# 6084
+# h, b, c, s = map(int, input().split())
+# mb = ((h*b*c*s)/8)/(1024**2)
+
+# print(format(mb, ".1f") + ' MB')
+# print(f"{format(mb, '.1f')} MB")
+# print(round(mb, 1), 'MB')
+
+# ******************************************************************************************
+# format(f, ".2f") -> 소숫점 이하 2번째 자리까지 반올림한 값을 출력(즉, 3번째 자리에서 반올림한 값)
+# print(f"{a}:{b}")
+
+# round 반올림 함수
+# print(round(h*b*c*s/8/1024/1024, 1), "MB")
+# ******************************************************************************************
+
+# 6085
+# w, h, b = map(int, input().split())
+# print(format(round((((w*h*b)/8)/1024)/1024, 2), '.2f'), 'MB')
+
+# 6086
+# n = int(input())
+# s = 0 # 합
+# c = 1
+# while True:
+#     if s >= n :
+#         print(s)
+#         break
+#     s += c
+#     c +=1
+
+# 6087
+# n = int(input())
+# for i in range(1, n+1):
+#     if i%3 == 0:
+#         continue
+#     print(i, end= ' ')
+
+# 6088
+# st, ad, tgt = map(int, input().split())
+# for _ in range(tgt-1):
+#     st += ad
+# print(st)
+
+# 6089
+# a, r, n = map(int, input().split())
+# for _ in range(n-1):
+#     a*=r
+# print(a)
+
+# 6090
+# a, m, d, n = map(int, input().split())
+# for _ in range(n-1):
+#     a *= m
+#     a += d
+# print(a)
+
+# 6091
+# a, b, c = map(int, input().split())
+# st = min(a, b, c)
+# while True:
+#     if st%a==0 and st%b==0 and st%c==0 :
+#         print(st)
+#         break
+#     st+=1
+
+# ******************************************************************************************
+# min 함수
+# min(숫자, list 등)
+# ******************************************************************************************
+
+# 6092
+# n = int(input())
+# a = list(map(int, input().split()))
+# # a리스트 입력 test
+# # for i in range(n):
+# #     print(a[i], end=' ')
+# b = [0 for i in range(23)]
+# for j in a:
+#     b[j-1]+=1
+# for k in b:
+#     print(k, end=' ')
+
+# ******************************************************************************************
+# 길이가 정해진 list 만들기
+# list = [0 for i in range(n)]
+# 리스트 길이를 지정하고 0으로 초기화
+
+# 또 다른 방법
+# d = []
+# for i in range(24) :
+#     d.append(0)
+# ******************************************************************************************
+
+# 6093
+# n = int(input())
+# a = list(map(int, input().split()))
+#
+# for i in range(len(a)):
+#     print(a[len(a)-1-i], end=' ')
