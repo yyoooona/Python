@@ -558,3 +558,97 @@
 #
 # for i in range(len(a)):
 #     print(a[len(a)-1-i], end=' ')
+
+# 6094
+# n = int(input())
+# a = list(map(int, input().split()))
+# print(min(a))
+
+# 6095
+# n = int(input())
+# d = [[0 for j in range(19)] for i in range(19)]
+# for _ in range(n):
+#     a, b = map(int, input().split())
+#     d[a-1][b-1] = 1
+#
+# for i in range(19):
+#     for j in range(19):
+#         print(d[i][j], end= ' ')
+#     print('', end='\n')
+
+# ******************************************************************************************
+# 20개의 0이 들어간 [0, 0, 0, ... , 0, 0, 0] 리스트
+# [0 for j in range(20)]
+# d = [[0 for j in range(20)] for i in range(20)]
+# => List Comprehensions (리스트 컴프리헨션)
+# ******************************************************************************************
+
+# 6096
+# b = [list(map(int, input().split())) for _ in range(19)]
+# n = int(input())
+# for _ in range(n):
+#     x, y = map(int, input().split())
+#     for i in range(19):
+#         if b[x-1][i] is 0 :
+#             b[x-1][i] = 1
+#         else :
+#             b[x-1][i] = 0
+#         if b[i][y-1] is 0 :
+#             b[i][y-1] = 1
+#         else :
+#             b[i][y-1] = 0
+# # 출력
+# for i in range(19):
+#     for j in range(19):
+#         print(b[i][j], end = ' ')
+#     print()
+
+# 6097
+# h, w = map(int, input().split())
+# b = [[0]*(w+1) for _ in range(h+1)]
+# n = int(input())
+# for _ in range(n):
+#     l, d, x, y = map(int, input().split()) # l:길이, d:방향, x, y : 좌표
+#     # b[x][y] = 1
+#     for k in range(l):
+#         if d is 0: # d가 0이면 가로
+#             b[x][y+k] = 1
+#         else : # d가 1인 경우, 세로
+#             b[x+k][y] = 1
+# for i in range(1, h+1):
+#     for j in range(1, w+1):
+#         print(b[i][j], end = ' ')
+#     print()
+
+# 6098
+b = [list(map(int, input().split())) for _ in range(10)]
+# 개미는 1,1에서부터 출발
+# 방향
+dx = [0, 1] # 오른쪽, 아래
+dy = [1, 0]
+x = 1
+y = 1
+b[x][y] = 9 # 개미의 시작점
+a = 1
+while a:
+    # 좌표가 미로안에 있고 벽을 만나지 않았을 때
+    if (x == 8 and y == 8) or b[x][y] == 2 :
+        break
+    flag = 0
+    for i in range(2):
+        if x + dx[i] <10 and y + dy[i] <10 and b[x + dx[i]][y + dy[i]] != 1:
+            if b[x + dx[i]][y + dy[i]] == 2:
+                b[x + dx[i]][y + dy[i]] = 9
+                a = 0
+                break
+            x = x + dx[i]
+            y = y + dy[i]
+            b[x][y] = 9
+            flag = 1
+        if i == 0 and flag == 1 : # 오른쪽으로 이동했으면 아래로 이동 X
+            break
+for i in range(10):
+    for j in range(10):
+        print(b[i][j], end = ' ')
+    print()
+
